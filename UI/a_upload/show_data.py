@@ -11,7 +11,7 @@ UPLOAD_FOLDER = "UI/a_data"
 if os.listdir(UPLOAD_FOLDER):
     uploaded_files = os.listdir(UPLOAD_FOLDER)
     uploaded_files = ["Select File"] + uploaded_files
-    selected_file = st.selectbox("Select a file to visualize:", uploaded_files)
+    selected_file = st.selectbox("Please select a file to visualize:", uploaded_files)
 
     if selected_file != "Select File":  # 仅当选择有效文件时读取数据
         file_path = os.path.join(UPLOAD_FOLDER, selected_file)

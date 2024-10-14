@@ -29,11 +29,4 @@ if st.button("Save Settings"):
     st.session_state.password = password
     st.session_state.theme = theme
     st.session_state.notifications = notifications
-
     st.success("Settings saved!")
-
-# Display current settings
-st.subheader("Current Settings")
-st.write(f"Username: {st.session_state.get('username', 'Not set')}")
-st.write(f"Theme: {st.session_state.get('theme', 'Not set')}")
-st.write(f"Enable Notifications: {'Yes' if st.session_state.get('notifications', False) else 'No'}")

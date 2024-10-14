@@ -18,7 +18,7 @@ file_path = os.path.join(UPLOAD_FOLDER, current_member_file)
 if os.path.exists(file_path):
     # 读取文件
     df = pd.read_excel(file_path)
-    st.dataframe(df)
+    st.dataframe(df.style.set_table_attributes('style="width: 100%; border-collapse: collapse;"'))
 
     # 检查列名
     required_columns = ["Member ID", "Member Gender", "Member Age", "Member Duration(Month)"]

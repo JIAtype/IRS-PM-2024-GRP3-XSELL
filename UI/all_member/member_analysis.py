@@ -133,7 +133,7 @@ if os.path.exists(file_path):
                 title='Monthly Spending and Frequency',
                 labels={'Monthly Spending': 'Average Monthly Spending', 'Averaged Number of Transaction': 'Average Number of Transactions'},
                 color='Averaged Number of Transaction',  # 根据交易数量变化颜色
-                color_continuous_scale=['#ff7043', '#ef5350']  # 浅色渐变
+                color_continuous_scale=['#ffee58','#ef5350']  # 浅色渐变
             )
             # 更新图表布局
             fig7.update_layout(
@@ -304,7 +304,6 @@ if os.path.exists(file_path):
 
         if missing_data:
             st.warning(f"For the chart(s) that failed to generate, the following essential data is missing: {', '.join(missing_data)}. Please re-upload the file.", icon="⚠️")
-
     else:
         st.warning(f"The uploaded file does not contain the required basic information columns: {', '.join(required_columns)}. Please upload a file with correct format.", icon="⚠️")
 else:

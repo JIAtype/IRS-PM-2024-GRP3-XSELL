@@ -123,9 +123,9 @@ def Business_Optimizer_GA(Brand_Product_with_limit,Budget,random_state=0):
 
 
 #页面部分
-st.title("Intelligent Stocking Assistant")
+st.title("📦 Intelligent Stocking Assistant")
 st.markdown("""
-    Welcome to the smart stocking recommendation platform, which makes it easy to find the best brand stocking solution for your budget!
+    Welcome to the smart procurement recommendation platform, which makes it easy to find the best brand stocking solution for your budget!
 """)
 
 # User role based upload folder
@@ -138,7 +138,7 @@ else:
 if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
     uploaded_files = os.listdir(UPLOAD_FOLDER)
     uploaded_files = ["Select File"] + uploaded_files
-    selected_file = st.selectbox("Please select the file to visualize here:", uploaded_files)
+    selected_file = st.selectbox("Please select your file to start the analysis:", uploaded_files)
     df = None
     if selected_file != "Select File":
         file_path = os.path.join(UPLOAD_FOLDER, selected_file)
@@ -147,31 +147,21 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
         elif selected_file.endswith(".xlsx"):
             df = pd.read_excel(file_path)
 
-        # Required columns for analysis
-        # required_columns = ["MemID", "MemGen_x", "MemAge_x", "MemDuration_M_x", "ASPT_x", "MaxSPT_x", "MinSPT_x", 
-        #                     "ANT_x", "APDR_x", "APinFavShop_x", "ATRinFavShop_x", "NGinFavShop_x", 
-        #                     "NFavinFavShop_x", "MemGen_y", "MemAge_y", "MemDuration_M_y", "ASPT_y", 
-        #                     "MaxSPT_y", "MinSPT_y", "ANT_y", "APDR_y", "APinFavShop_y", "ATRinFavShop_y", 
-        #                     "NGinFavShop_y", "NFavinFavShop_y", "ProdName"]
-        required_columns = ["QtySold"]
+        required_columns = ["ProdID", "ProdName", "CntID", "TaxIncCost", "Prc", "NetProfit", "CntName", "QtySold", "sell_pct", "purchase_limit"]
         
-
-        # Analysis button with style
-        # if st.button("🔍 Analyze", key="analyze_button"):
-        # st.header("🌟 SVIP Spotlight and Product Recommendations")
         if df is not None:
             if all(col in df.columns for col in required_columns):
-                # st.success("The file is loaded successfully!")
                 default_budget = 100000
                 budget = st.number_input("Please enter a budget (default is 100000):", value = 100000)
-                if st.button("Submit"):
+                if st.button("🔍 Analyze", key="analyze_button", help="Click to analyze budget"):
                     if budget is None or budget == 0 or budget <= 0:
-                        st.warning("The budget must be greater than 0. The default value of 100000 has been used.")
+                        st.toast("The budget must be greater than 0. The default value of 100000 has been used.", icon="⚠️")
                         budget = default_budget
                     brand_value = df['CntName'].iloc[0]
-                    st.write(f"For Brand: ***{brand_value}***")
+                    st.header(f"🌟 For ***{brand_value}*** Procurement Recommendations")
+                    # st.write(f"For Brand: ***{brand_value}***")
                     st.write(f"If your budget is: **{budget}**")
-                    st.toast("Please wait a moment while the results are being generated!")
+                    st.toast("Please wait a moment while the results are being generated!", icon="⚠️")
                     # 调用函数并接收返回值
                     result = Business_Optimizer_GA(df, budget, random_state=66)
                     # 访问数据
@@ -186,7 +176,7 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
                         }
                     )
                     st.write("The most recommended brand stocking programs are listed below:")
-                    st.dataframe(selected_columns)
+                    st.dataframe(selected_columns.style.set_table_attributes('style="width: 100%; border-collapse: collapse;"'))
                     st.write(f"The optimal profit is expected to be: **{best_profit}**")
                     st.write(f"The total cost will be: **{total_cost}**")
             else:
@@ -195,4 +185,3 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
             st.warning("Please select a valid file before clicking 'Analyze'.", icon="⚠️")
 else:
     st.warning("Please upload one or more files in the upload files section to get started!", icon="⚠️")
-
