@@ -16,9 +16,9 @@ st.markdown("""
 
 # User role based upload folder
 if st.session_state.role == "Admin":
-    UPLOAD_FOLDER = "a_data"
+    UPLOAD_FOLDER = "UI/a_data"
 else:
-    UPLOAD_FOLDER = "c_data"
+    UPLOAD_FOLDER = "UI/c_data"
 
 # File upload section
 if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
