@@ -5,3 +5,5 @@ openpyxl
 matplotlib
 joblib
 scikit-learn
+numpy
+deap
