@@ -23,18 +23,15 @@ def login():
     if st.button("Log in"):
         if username == "123" and password == "123":
             st.session_state.role = "Admin"
-            st.success("Admin Login successful!")
-            time.sleep(1)
+            st.toast("Admin Login successful!")
             st.rerun()
         elif username == "456" and password == "456":
             st.session_state.role = "Clerk"
-            st.success("Clerk login successful!")
-            time.sleep(1)
+            st.toast("Clerk login successful!")
             st.rerun()
         else:
             st.session_state.role = None
-            st.error('The user name or password is wrong, please try again.', icon="⚠️")
-            time.sleep(3)
+            st.toast('The user name or password is wrong, please try again.', icon="⚠️")
             st.rerun()
 
 def logout():
