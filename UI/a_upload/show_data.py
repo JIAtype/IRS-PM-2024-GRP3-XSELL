@@ -5,7 +5,7 @@ import os
 st.title("📑 Show Data")
 st.markdown("This page allows you to view data files in the upload folder. Please select a file below.")
 
-UPLOAD_FOLDER = "a_data"
+UPLOAD_FOLDER = "UI/a_data"
 
 # 检查上传文件夹是否为空
 if os.listdir(UPLOAD_FOLDER):

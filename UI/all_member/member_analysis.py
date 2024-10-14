@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 # 设置标题
 st.title("💡 Current Member Consumer Analysis:")
 
-UPLOAD_FOLDER = "a_data"
+UPLOAD_FOLDER = "UI/a_data"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 current_member_file = "current_member.xlsx"
 file_path = os.path.join(UPLOAD_FOLDER, current_member_file)

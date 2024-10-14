@@ -2,7 +2,7 @@ import streamlit as st
 import os
 
 # Set the upload directory
-UPLOAD_FOLDER = "a_data"
+UPLOAD_FOLDER = "UI/a_data"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 st.title("📁 File Upload")

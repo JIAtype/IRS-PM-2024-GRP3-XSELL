@@ -45,42 +45,42 @@ role = st.session_state.role
 
 # 使用 st.Page 创建多个页面，包括登出、设置、上传等，每个页面都有标题和图标。
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
-settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
+settings = st.Page("UI/settings.py", title="Settings", icon=":material/settings:")
 
 member_overview = st.Page(
-    "all_member/member_overview.py",
+    "UI/all_member/member_overview.py",
     title="Overview",
     icon=":material/database:", 
 )
 member_analysis = st.Page(
-    "all_member/member_analysis.py", 
+    "UI/all_member/member_analysis.py", 
     title="Analysis", 
     icon=":material/leaderboard:",
     default=(role == "Admin"),
 )
 a_upload = st.Page(
-    "a_upload/upload.py",
+    "UI/a_upload/upload.py",
     title="Upload Files",
     icon=":material/upload_file:",
 )
 a_show_data = st.Page(
-    "a_upload/show_data.py",
+    "UI/a_upload/show_data.py",
     title="View Files",
     icon=":material/task:",
 )
 c_upload = st.Page(
-    "c_upload/upload.py",
+    "UI/c_upload/upload.py",
     title="Upload Files",
     icon=":material/upload_file:",
     default=(role == "Clerk"),
 )
 c_show_data = st.Page(
-    "c_upload/show_data.py",
+    "UI/c_upload/show_data.py",
     title="View Files",
     icon=":material/task:",
 )
 svip = st.Page(
-    "consumer_insight/svip.py",
+    "UI/consumer_insight/svip.py",
     title="SVIP Recommendation",
     icon=":material/stars:",
 )
@@ -95,7 +95,7 @@ svip = st.Page(
 #     icon=":material/monitoring:",
 # )
 inventory = st.Page(
-    "brand/inventory.py",
+    "UI/brand/inventory.py",
     title="Procurement Recommendation",
     icon=":material/inventory:",
 )
@@ -109,7 +109,7 @@ insight_pages = [svip]
 brand_pages = [inventory]
 
 # st.title("XSell")
-st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
+st.logo("UI/images/horizontal_blue.png", icon_image="UI/images/icon_blue.png")
 
 # 按照希望的顺序排列页面组
 page_dict = {}

@@ -7,7 +7,7 @@ import os
 # 设置标题
 st.title("📑 Current Member Consumer Data Preview:")
 
-UPLOAD_FOLDER = "a_data"
+UPLOAD_FOLDER = "UI/a_data"
 # 确保文件夹存在
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # 指定要读取的文件名
