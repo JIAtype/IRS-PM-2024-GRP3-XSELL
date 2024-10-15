@@ -5,11 +5,11 @@ import os
 st.title("📑 Show Data")
 st.markdown("This page allows you to view data files in the upload folder. Please select a file below.")
 
-UPLOAD_FOLDER = "UI/a_data"
+UPLOAD_FOLDER = "UI/c_data"
 
 # 检查上传文件夹是否为空
 if os.listdir(UPLOAD_FOLDER):
-    uploaded_files = os.listdir(UPLOAD_FOLDER)
+    uploaded_files = [f for f in os.listdir(UPLOAD_FOLDER) if f != ".DS_Store"]
     uploaded_files = ["Select File"] + uploaded_files
     selected_file = st.selectbox("Please select a file to visualize:", uploaded_files)
 
@@ -21,6 +21,9 @@ if os.listdir(UPLOAD_FOLDER):
             df = pd.read_csv(file_path)
         elif selected_file.endswith(".xlsx"):
             df = pd.read_excel(file_path)
+        else:
+            df = pd.DataFrame()
+            st.error("Please select a valid file to delete.")
 
         # 显示数据
         st.write(f"### Data from **{selected_file}**:")

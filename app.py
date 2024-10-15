@@ -10,12 +10,12 @@ ROLES = [None, "Admin", "Clerk"]
 
 def login():
 
-    st.header("Log in")
+    st.title("Xsell")
 
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+    username = st.text_input(" Username")
+    password = st.text_input(" Password", type="password")
 
-    if st.button("Log in"):
+    if st.button("Log In"):
         if username == "admin" and password == "123456":
             st.session_state.role = "Admin"
             st.success("Admin Login successful!", icon="🎉")
@@ -57,26 +57,36 @@ a_upload = st.Page(
     title="Upload Files",
     icon=":material/upload_file:",
 )
-a_show_data = st.Page(
-    "UI/a_upload/show_data.py",
+a_show = st.Page(
+    "UI/a_upload/show.py",
     title="View Files",
     icon=":material/task:",
+)
+a_delete = st.Page(
+    "UI/a_upload/delete.py",
+    title="Delete Files",
+    icon=":material/scan_delete:",
 )
 c_upload = st.Page(
     "UI/c_upload/upload.py",
     title="Upload Files",
     icon=":material/upload_file:",
-    default=(role == "Clerk"),
 )
-c_show_data = st.Page(
-    "UI/c_upload/show_data.py",
+c_show = st.Page(
+    "UI/c_upload/show.py",
     title="View Files",
     icon=":material/task:",
+)
+c_delete = st.Page(
+    "UI/c_upload/delete.py",
+    title="Delete Files",
+    icon=":material/scan_delete:",
 )
 svip = st.Page(
     "UI/consumer_insight/svip.py",
     title="SVIP Recommendation",
     icon=":material/stars:",
+    default=(role == "Clerk")
 )
 # lever_analysis = st.Page(
 #     "consumer_insight/lever_analysis.py",
@@ -95,8 +105,8 @@ inventory = st.Page(
 )
 
 account_pages = [logout_page, settings]
-a_upload_pages = [a_upload, a_show_data]
-c_upload_pages = [c_upload, c_show_data]
+a_upload_pages = [a_upload, a_show, a_delete]
+c_upload_pages = [c_upload, c_show, c_delete]
 allmember_pages = [member_overview, member_analysis]
 insight_pages = [svip]
 brand_pages = [inventory]

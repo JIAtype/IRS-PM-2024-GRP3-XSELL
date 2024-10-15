@@ -12,7 +12,7 @@ UPLOAD_FOLDER = "UI/a_data"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 current_member_file = "current_member.xlsx"
 file_path = os.path.join(UPLOAD_FOLDER, current_member_file)
-image_path = os.path.join("images", "A.png")
+image_path = os.path.join("UI/images", "A.png")
 
 missing_data = []
 

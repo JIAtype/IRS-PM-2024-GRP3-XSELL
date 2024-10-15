@@ -22,7 +22,7 @@ else:
 
 # File upload section
 if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
-    uploaded_files = os.listdir(UPLOAD_FOLDER)
+    uploaded_files = [f for f in os.listdir(UPLOAD_FOLDER) if f != ".DS_Store"]
     uploaded_files = ["Select File"] + uploaded_files
     selected_file = st.selectbox("Please select your file to start the analysis:", uploaded_files)
     df = None

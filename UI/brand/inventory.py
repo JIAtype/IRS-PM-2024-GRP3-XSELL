@@ -34,7 +34,6 @@ def Business_Optimizer_GA(Brand_Product_with_limit,Budget,random_state=0):
     Costs = Brand_Product_with_limit['TaxIncCost'].values  # The Cost of each item
     sell_pct = Brand_Product_with_limit['sell_pct'].values # The sell_pct of each item
 
-
     n_items = len(NetProfits)  # Number of items
 
     # Define the fitness function, aiming for maximization
@@ -136,7 +135,7 @@ else:
 
 # File upload section
 if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
-    uploaded_files = os.listdir(UPLOAD_FOLDER)
+    uploaded_files = [f for f in os.listdir(UPLOAD_FOLDER) if f != ".DS_Store"]
     uploaded_files = ["Select File"] + uploaded_files
     selected_file = st.selectbox("Please select your file to start the analysis:", uploaded_files)
     df = None
