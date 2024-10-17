@@ -176,8 +176,8 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
                     )
                     st.write("The most recommended brand stocking programs are listed below:")
                     st.dataframe(selected_columns.style.set_table_attributes('style="width: 100%; border-collapse: collapse;"'))
-                    st.write(f"The optimal profit is expected to be: **{int(best_profit)}**")
-                    st.write(f"The total cost will be: **{int(total_cost)}**")
+                    st.write(f"The optimal profit is expected to be: **{int(best_profit)}** dollars")
+                    st.write(f"The total cost will be: **{int(total_cost)}** dollars")
             else:
                 st.warning(f"The selected file does not contain the required columns: {', '.join(required_columns)}. Please upload a file with the correct format.", icon="⚠️")
         else:
