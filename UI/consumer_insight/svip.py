@@ -42,6 +42,8 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
 
         if df is not None:
             if all(col in df.columns for col in required_columns):
+                st.write(f"Preview data from **{selected_file}**:")
+                st.dataframe(df.style.set_table_attributes('style="width: 100%; border-collapse: collapse;"'))
                 if st.button("🔍 Analyze", key="analyze_button"):
                     st.header("🌟 SVIP Spotlight and Product Recommendations")
 

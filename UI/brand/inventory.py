@@ -122,7 +122,7 @@ def Business_Optimizer_GA(Brand_Product_with_limit,Budget,random_state=0):
 
 
 #页面部分
-st.title("📦 Intelligent Stocking Assistant")
+st.title("📦 Procurement Recommendation")
 st.markdown("""
     Welcome to the smart procurement recommendation platform, which makes it easy to find the best brand stocking solution for your budget!
 """)
@@ -149,6 +149,8 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
         required_columns = ["ProdID", "ProdName", "CntID", "TaxIncCost", "Prc", "NetProfit", "CntName", "QtySold", "sell_pct", "purchase_limit"]
         
         if df is not None:
+            st.write(f"Preview data from **{selected_file}**:")
+            st.dataframe(df.style.set_table_attributes('style="width: 100%; border-collapse: collapse;"'))
             if all(col in df.columns for col in required_columns):
                 default_budget = 100000
                 budget = st.number_input("Please enter a budget (default is 100000):", value = 100000)
@@ -159,7 +161,7 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
                     brand_value = df['CntName'].iloc[0]
                     st.header(f"🌟 For ***{brand_value}*** Procurement Recommendations")
                     # st.write(f"For Brand: ***{brand_value}***")
-                    st.write(f"If your budget is: **{budget}**")
+                    st.write(f"If your budget is: **{budget}** dollars")
                     st.toast("Please wait a moment while the results are being generated!", icon="⚠️")
                     # 调用函数并接收返回值
                     result = Business_Optimizer_GA(df, budget, random_state=66)

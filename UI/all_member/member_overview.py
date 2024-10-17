@@ -23,7 +23,7 @@ if os.path.exists(file_path):
     # 检查列名
     required_columns = ["Member ID", "Member Gender", "Member Age", "Member Duration(Month)"]
     if all(col in df.columns for col in required_columns):
-        st.success("✅ File contains the required columns")
+        st.success("✅ File contains the required basic columns")
     else:
         st.warning(f"The uploaded file does not contain the required basic information columns: {', '.join(required_columns)}. Please upload a file with correct format.", icon="⚠️")
 else:
