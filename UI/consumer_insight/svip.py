@@ -169,7 +169,7 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
                                 'User Type': ['SVIP', 'Member'],
                                 'Count': [svip_count, member_count]
                             })
-                            color_sequence = ['#ef5350', '#ffee58']
+                            color_sequence = ['#ffee58','#ef5350']
                             fig = px.pie(pie_data, values='Count', names='User Type', title='SVIP and Member Proportions', hole=0.2, color_discrete_sequence=color_sequence)
                             fig.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#FFFFFF', width=2)))
                             fig.update_layout(legend_title_text='User Type', legend=dict(orientation="h"))
