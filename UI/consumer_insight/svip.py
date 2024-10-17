@@ -158,6 +158,7 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
                             return ['background-color: yellow' if row['Importance'] == 'SVIP' else '' for _ in row]
 
                         styled_results = final_results.style.apply(highlight_svip, axis=1).set_table_attributes('style="width:100%; border-collapse: collapse;"')
+                        st.markdown("**Note:** The highlighted rows represent SVIP users (high-value customers).")
                         st.dataframe(styled_results)
 
                         svip_count = df[df['User_Importance'] == 'SVIP'].shape[0]
