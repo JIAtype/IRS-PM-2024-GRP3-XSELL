@@ -171,8 +171,9 @@ if os.path.isdir(UPLOAD_FOLDER) and os.listdir(UPLOAD_FOLDER):
                             })
                             color_sequence = ['#ffee58','#ffffff']
                             fig = px.pie(pie_data, values='Count', names='User Type', title='SVIP and Member Proportions', hole=0.2, color_discrete_sequence=color_sequence)
-                            fig.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#FFFFFF', width=2)))
+                            # fig.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#FFFFFF', width=2)))
                             fig.update_layout(legend_title_text='User Type', legend=dict(orientation="h"))
+                            fig.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#000000', width=2)))
                             st.plotly_chart(fig)
                     else:
                         st.warning("Data is missing one or more of the features needed for analysis.", icon="⚠️")
