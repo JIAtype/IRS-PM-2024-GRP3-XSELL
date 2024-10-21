@@ -1,4 +1,4 @@
-# IRS_Team3
+# IRS-PM-2024-GRP3-XSELL
 
 Group Name:
 Group 3 (as known as Fruit)
