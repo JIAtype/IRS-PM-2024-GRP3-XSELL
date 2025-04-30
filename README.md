@@ -16,4 +16,4 @@ A0039368U /
 A0294638M
 
 Weblink:
-https://github.com/JIAtype/IRS-PM-2024-GRP3-XSELL.git
+https://irsgroup3-bykhwbgdczbhvd3zyfezlc.streamlit.app/
